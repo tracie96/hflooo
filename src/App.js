@@ -72,7 +72,7 @@ const [event, setEvent] = useState([]);
                   <img src={Woman} style={{ width: "50%" }} alt={'woman'}></img>
                   <div className="form-group">
                     <label for="exampleInputEmail1">
-                      What's the start date of your last period
+                      What's the start date of your last period?
                     </label>
                     <input
                       type="date"
