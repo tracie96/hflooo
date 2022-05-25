@@ -95,13 +95,13 @@ const [event, setEvent] = useState([]);
                     </label>
                     <input
                       type="text"
-                      value={details.lengthofperiod}
+                      value={details.periodofovulation}
                       className="form-control mt-2"
                       required
                       onChange={(e) => {
                         setDetails({
                           ...details,
-                          lengthofperiod: e.target.value,
+                          periodofovulation: e.target.value,
                         });
                       }}
                       id="exampleInputPassword1"
@@ -115,13 +115,13 @@ const [event, setEvent] = useState([]);
                     </label>
                     <input
                       type="text"
-                      value={details.periodofovulation}
+                      value={details.lengthofperiod}
                       className="form-control"
                       required
                       onChange={(e) => {
                         setDetails({
                           ...details,
-                          periodofovulation: e.target.value,
+                          lengthofperiod: e.target.value,
                         });
                       }}
                       id="exampleInputPassword1"
