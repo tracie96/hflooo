@@ -7,6 +7,7 @@ import axios from "axios";
 
 // import "bulma";
 import "./styles.css";
+import "./style.css";
 
 function App() {
   const [details, setDetails] = useState({
@@ -16,7 +17,6 @@ function App() {
   });
 
 const [event, setEvent] = useState([]);
-const [loader,setLoading]=useState(false)
   const getData = () => {
     var data = JSON.stringify({
       lmpp: details.startdate,
@@ -26,7 +26,7 @@ const [loader,setLoading]=useState(false)
 
     var config = {
       method: "post",
-      url: "http://localhost:5000/api/cycle-info",
+      url: "https://gentle-sea-37009.herokuapp.com/api/cycle-info",
       headers: {
         "Content-Type": "application/json",
       },
@@ -35,11 +35,9 @@ const [loader,setLoading]=useState(false)
 
     axios(config)
       .then(function (response) {
-        setLoading(true);
         setEvent(response.data.payload)
         console.log(typeof(response.data.payload))
         localStorage.setItem("event", JSON.stringify(response.data.payload));
-        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -50,7 +48,6 @@ const [loader,setLoading]=useState(false)
     setPage(2)
     getData();
   };
-
   const [currentPage, setPage] = useState(1);
   const nextPage = () => setPage(2);
   const prevPage = () => setPage(1);
@@ -141,9 +138,7 @@ const [loader,setLoading]=useState(false)
                     >
                       Calculate
                     </button>
-                    {loader? <div className="spinner-border text-success" role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>:""}
+                  
                    
                   </div>
                 </Form>
